@@ -1,32 +1,18 @@
 #include <stdio.h>
 #include <locale.h>
-#include <limits.h>
 
 int main() {
-    setlocale(LC_ALL, "");
-    int n;
-    int i;
-    int soma = 0;
-    int maior = INT_MIN;
-    int menor = INT_MAX;
+    setlocale(LC_ALL,"");
 
-    for (i = 0; i <= 5; i++) {
-        printf("Digite um número: ");
-        scanf("%d", &n);
-        soma += n;
+    int i, vet[6];
 
-        if (n > maior) {
-            maior = n;
-        }
-
-        if (n < menor) {
-            menor = n;
-        }
+    for(i = 0;i < 6;i++) {
+        printf("Digite o número %d: \n", i+1);
+        scanf("%d", &vet[i]);
     }
-
-    printf("A soma é %d\n", soma);
-    printf("Maior número é: %d\n", maior);
-    printf("Menor número é: %d\n", menor);
-
+    printf("Vetor invertido: ");
+    for(i = 5;i > -1;i--){
+        printf("%d ", vet[i]);
+    }
     return 0;
 }

@@ -2,25 +2,28 @@
 #include <locale.h>
 
 int main() {
-    setlocale(LC_ALL, "");
-    int n, i;
+    setlocale(LC_ALL,"");
 
-    printf("Digite um número inteiro e positivo: ");
-    scanf("%d", &n);
+    int i, x, y, vet[7];
 
-    int primo = 1;
+    for (i = 0;i < 7;i++) {
+        printf("Digite o número %d: \n", i+1);
+        scanf("%d", &vet[i]);
+    }
+    printf("Digite o valor de x: \n");
+    scanf("%d", &x);
+    printf("Digite o valor de y: \n");
+    scanf("%d", &y);
 
-    for (i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            primo = 0;
-            break;
+    for (i = 0;i < 7;i++){
+        if (vet[i] == x) {
+            vet[i] = y;
         }
     }
 
-    if (primo) {
-        printf("%d é um número primo.\n", n);
-    } else {
-        printf("%d não é um número primo.\n", n);
+    printf("Vetor resultante: ");
+    for (i = 0;i < 7;i++){
+        printf("%d ", vet[i]);
     }
 
     return 0;

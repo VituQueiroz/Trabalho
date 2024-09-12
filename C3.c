@@ -1,15 +1,29 @@
 #include <stdio.h>
 #include <locale.h>
 
-int main(){
+int main() {
     setlocale(LC_ALL,"");
-    int n;
-    printf("Digite o número da tabuada: ");
-    scanf("%d", &n);
-    for (int i=1; i<11;i++) {
-        printf("%d x %d é igual a %d\n",n,i, i*n);
+
+    int i, maior, menor, vet[7];
+
+    for(i = 0;i < 7;i++) {
+        printf("Digite o valor %d:\n", i+1);
+        scanf("%d", &vet[i]);
+
+        if (i == 0) {
+            maior = menor = vet[i];
+        }
+        else {
+            if (vet[i] > maior) {
+                maior = vet[i];
+            }
+            else if (vet[i] < menor) {
+                menor = vet[i];
+            }
+        }
     }
+    printf("Maior elemento: %d \n", maior);
+    printf("Menor elemento: %d", menor);
 
-
-return 0;
+    return 0;
 }

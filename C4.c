@@ -1,47 +1,32 @@
 #include <stdio.h>
 #include <locale.h>
 
-int main(){
+int main() {
     setlocale(LC_ALL,"");
-    int N, i;
-    int valor, maior, menor;
-    int soma = 0;
 
-    printf("Digite o número de valores inteiros a serem lidos: ");
-    scanf("%d", &N);
+    int i, num, resp, vet[8];
 
-    if (N <= 0) {
-        printf("O número de valores deve ser maior que 0.\n");
-        return 1;
+    for(i = 0;i < 8;i++) {
+        printf("Digite o número %d: \n", i+1);
+        scanf("%d", &vet[i]);
     }
+    printf("Digite um valor para checar se há no vetor: \n");
+    scanf("%d", &num);
 
-    printf("Digite um valor inteiro: ");
-    scanf("%d", &valor);
-    maior = menor = valor;
-    soma = valor;
-
-    i = 1;
-    do {
-        printf("Digite um valor inteiro: ");
-        scanf("%d", &valor);
-
-        soma += valor;
-
-        if (valor > maior) {
-            maior = valor;
+    for(i = 0;i < 8; i++){
+        if (num == vet[i]){
+            resp = 0;
+            break;
         }
-        if (valor < menor) {
-            menor = valor;
+        else{
+            resp = 1;
         }
-
-        i++;
-    } while (i < N);
-
-    double media = (double)soma / N;
-
-    printf("Maior valor: %d\n", maior);
-    printf("Menor valor: %d\n", menor);
-    printf("Média dos valores: %.2f\n", media);
-
-return 0;
+    }
+    if (resp == 0) {
+        printf("SIM");
+    }
+    else if(resp == 1){
+        printf("NÃO");
+    }
+    return 0;
 }

@@ -2,19 +2,29 @@
 #include <locale.h>
 
 int main() {
-    setlocale(LC_ALL, "");
-    int i, idade, maior = 0;
+    setlocale(LC_ALL,"");
+    int i, j, x, tam, vet[6];
 
-    for (i = 0; i < 5; i++) {
-        printf("Digite a idade da pessoa %d: ", i + 1);
-        scanf("%d", &idade);
+    for (i=0; i < 6; i++){
+        printf("Digite o elemento %d: \n", i + 1);
+        scanf("%d", &vet[i]);
+    }
+    puts("Digite o valor de x: ");
+    scanf("%d", &x);
 
-        if (idade > 18) {
-            maior++;
+    tam = 6;
+    for (i=0; i < tam; i++){
+        if(vet[i] == x){
+            for (j = i; j < tam - 1; j++){
+                vet[j] = vet[j + 1];
+            }
+            tam--;
+            i--;
         }
     }
-
-    printf("Maior de 18: %d\n", maior);
-
+    puts("Novo vetor: ");
+    for (i=0; i < tam; i++){
+        printf("%d ", vet[i]);
+    }
     return 0;
 }

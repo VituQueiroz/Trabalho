@@ -4,15 +4,14 @@
 int main() {
     setlocale(LC_ALL,"");
 
-    int i, soma = 0, media, vet[9];
+    int soma = 0, i, vet[8];
 
-    for(i = 0;i < 9;i++) {
+    for (i = 0; i < 8; i++) {
         printf("Digite o número %d: \n", i+1);
         scanf("%d", &vet[i]);
         soma += vet[i];
     }
-    media = soma / 9;
-    printf("Media aritmetica: %d", media);
+    printf("Soma dos elementos: %d", soma);
 
     return 0;
 }
